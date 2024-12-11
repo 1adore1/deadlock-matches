@@ -1,13 +1,15 @@
 # Deadlock Match Tracker Bot
 
 ### Overview
-This bot provides real-time data about active matches in the game Deadlock for players in the top 250 leaderboard. Users can check their Steam profile to view match information and refresh data dynamically.
+A Telegram bot for tracking real-time Deadlock matches of top 250 players. The bot fetches match data using the Deadlock API and predicts the likely match winner using a machine learning model.
 
 ### Features:
-- Check Steam profiles for active matches.
-- Display detailed match data including team net worth, hero information, and winning probability.
-- Refresh match data with a button click.
-- The project uses a Gradient Boosting Classifier to predict the winner.
+- Real-time tracking of Deadlock matches for top 250 leaderboard players.
+- Predicts match winners using a Gradient Boosting model.
+- Achieves an accuracy of 96% in predicting match outcomes.
+- Displays match details such as net worth, heroes, and match score.
+- Allows users to refresh match details dynamically with a button click.
+
 ## Installation
 
 **Requirements**:
@@ -33,6 +35,11 @@ This bot provides real-time data about active matches in the game Deadlock for p
    ```
    python tg_bot.py
    ```
+
+## Data Collecting:
+**Deadlock API**
+- Historical data (67k matches) was fetched from `https://analytics.deadlock-api.com/`.
+- Information about each new match is fetched from `https://data.deadlock-api.com/`.
 
 ## Bot Commands
 
