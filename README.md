@@ -7,7 +7,7 @@ This bot provides real-time data about active matches in the game Deadlock for p
 - Check Steam profiles for active matches.
 - Display detailed match data including team net worth, hero information, and winning probability.
 - Refresh match data with a button click.
-
+- The project uses a Gradient Boosting Classifier to predict the winner.
 ## Installation
 
 **Requirements**:
