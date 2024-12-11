@@ -17,7 +17,6 @@ dp = Dispatcher(storage=MemoryStorage())
 router = Router()
 dp.include_router(router)
 
-# In-memory storage for subscriptions
 subscriptions = {}
 
 class Form(StatesGroup):
@@ -37,19 +36,17 @@ def get_match_acc_id_keyboard():
 # Commands
 @router.message(Command('start'))
 async def start_command(message: types.Message):
-    user_id = message.chat.id
     await message.answer('A bot for getting real-time data for Deadlock matches (top 250 leaderboard only).', reply_markup=get_match_acc_id_keyboard())
 
 @router.message(Command('check'))
-async def link_acc_id(message: types.Message, state: FSMContext):
+async def check_acc_id(message: types.Message, state: FSMContext):
     user_id = message.chat.id
     await bot.send_message(user_id, 'Enter steam profile url: ')
     await state.set_state(Form.url)
 
 
-
 @router.callback_query(F.data == 'check_acc')
-async def link_acc_id(callback_query: types.CallbackQuery, state: FSMContext):
+async def check_acc_id(callback_query: types.CallbackQuery, state: FSMContext):
     user_id = callback_query.message.chat.id
     await bot.send_message(user_id, 'Enter steam profile url: ')
     await state.set_state(Form.url)
